@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="todo.css">
+  <title>Todo-App</title>
+</head>
+
+<body>
+
+  <div class="todo">
+    TODO APP
+  </div>
+
+  <div class="cont">
+    <h2>Add Your Todos</h2>
+
+    <div class="input">
+      <input type="text" placeholder="Add your tasks..." id="inp" autocomplete="off">
+      <button class="btn">
+        Add
+      </button>
+    </div>
+    <ul class="todoitem">
+    </ul>
+  </div>
+
+  <script>
+    let btn = document.querySelector('.btn');
+    let item = document.querySelector('.todoitem');
+    let inp = document.querySelector('#inp');
+
+    btn.addEventListener('click',()=>{
+      if(inp.value===""){
+        alert('Please enter your task first.')
+      }else{
+
+        let list = document.createElement('li');
+        list.textContent = inp.value;
+        list.classList.add('item');
+        item.appendChild(list);
+        inp.value = "";
+        const btn = document.createElement('button');
+        btn.classList.add('btn1');
+        list.appendChild(btn);
+
+        list.addEventListener('click',()=>{
+          list.classList.toggle('checked')
+        })
+
+        btn.addEventListener('click',()=>{
+          // inp.value = list.textContent
+        btn.parentElement.remove();
+        })
+      }
+    })
+    
+  </script>
+</body>
+
+</html>
